@@ -1,7 +1,7 @@
 # Default Applications directory
 
 helm_apps_dir := "apps"
-helm_timeout := "555m"
+helm_timeout := "5m"
 
 # Kind configuration
 
@@ -56,7 +56,7 @@ _kind-create-cluster:
 
 _kind-update-context:
     @kubectl cluster-info --context kind-{{ cluster_name }}
-    @kubectl config set-context kind-{{ cluster_name }}
+    @kubectl config use-context kind-{{ cluster_name }}
 
 _repo-nginx:
     @just _add-helm-repo {{ nginx_repo_name }} {{ nginx_chart_url }}
