@@ -17,9 +17,11 @@ server:
   ingress:
     enabled: true
     ingressClassName: nginx
-    hostname: argocd.apps.127.0.0.1.nip.io
+    hosts: 
+      - argocd.apps.127.0.0.1.nip.io
     annotations:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+
 configs:
   cm:
     admin.enabled: false
